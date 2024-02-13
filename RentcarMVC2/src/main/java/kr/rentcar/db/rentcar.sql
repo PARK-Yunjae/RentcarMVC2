@@ -15,7 +15,7 @@ CREATE TABLE rentcar(
     info VARCHAR(500) -- 차량 정보 
 );
 -- member 테이블 생성
-CREATE TABLE member(
+CREATE TABLE User(
 	no INT auto_increment primary key, -- 고객 정보
 	id VARCHAR(20), 
     pw VARCHAR(20), 
