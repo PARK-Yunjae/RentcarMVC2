@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>렌트카 등록 - 관리자</title>
 </head>
 <body>
 

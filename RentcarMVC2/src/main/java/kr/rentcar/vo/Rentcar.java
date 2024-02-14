@@ -1,16 +1,16 @@
 package kr.rentcar.vo;
-
+// 랜트카
 public class Rentcar {
 
-	private int no;
-	private String name;
-	private int category;
-	private int price;
-	private int usepeople;
-	private int totalQty;
-	private String company;
-	private String img;
-	private String info;
+	private int no;		    // 랜트카 고유 번호
+	private String name;	// 차량 이름
+	private int category;	// 차량 종류
+	private int price;		// 랜트 가격
+	private int usepeople;	// 승차 인원
+	private int totalQty;	// 랜트카 총 수량
+	private String company;	// 차량 회사 정보
+	private String img;		// 차량 이미지
+	private String info;	// 차량 정보
 
 	public Rentcar() {
 	}

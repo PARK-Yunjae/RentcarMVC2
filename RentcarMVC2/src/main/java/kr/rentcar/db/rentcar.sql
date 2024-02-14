@@ -1,8 +1,7 @@
 create database rentcarDB01;
 USE rentcarDB01;
--- rentcar 테이블 생성
 
-drop table member;
+-- rentcar 테이블 생성
 CREATE TABLE rentcar(
 	no INT auto_increment primary key, -- 렌트카 고유 번호 
     name VARCHAR(20), -- 차량 이름
@@ -14,20 +13,23 @@ CREATE TABLE rentcar(
     img VARCHAR(50), -- 차량 이미지 
     info VARCHAR(500) -- 차량 정보 
 );
--- member 테이블 생성
+
+-- user 테이블 생성
 CREATE TABLE User(
 	no INT auto_increment primary key, -- 고객 정보
 	id VARCHAR(20), 
     pw VARCHAR(20), 
+    age VARCHAR(10),
     email VARCHAR(50), 
     tel VARCHAR(20),
     hobby VARCHAR(60),
     job VARCHAR(15),
-    age VARCHAR(10),
     info VARCHAR(500)
 );
+drop table user;
 
-CREATE TABLE carreserve(
+-- 예약 정보 테이블 생성
+CREATE TABLE reservation(
 	reserve_seq INT auto_increment primary key,  -- 차량 예약 정보 번호
     no INT, -- 렌트카 고유 번호 
     id VARCHAR(50), -- 고객 id 
@@ -40,9 +42,22 @@ CREATE TABLE carreserve(
     useseat INT -- 베이비시트 적용 
 );
 
-INSERT INTO member VALUES (null,'qwer', '1234', 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', 31, '반갑습니다');
-INSERT INTO member VALUES (null, 'asdf', '1234', 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', 31, '반갑습니다');
-select * from member;
+-- 게시판 테이블 생성
+create table board(
+	no int primary key auto_increment,
+	id varchar(20) not null,
+	subject varchar(20) not null,
+	contents varchar(1000) not null,
+	regDate varchar(30) not null,
+ 	oFileName varchar(100),
+ 	sFileName varchar(100),
+	unique key(no)
+);
+INSERT INTO user VALUES (null,'admin', 'admin', 31, 'admin@naver.com', '010-2343-2444', '관리자', '관리자', '반갑습니다');
+INSERT INTO user VALUES (null,'qwer', '1234', 31, 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', '반갑습니다');
+INSERT INTO user VALUES (null, 'asdf', '1234', 31, 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', '반갑습니다');
+select * from user;
+delete from user;
 
 -- rentercar 데이터 삽입
 INSERT INTO rentcar VALUES (1, '아반테', 1,  2000, 4, 10,'기아', '1.jpg' , '아반테 자동차 입니다.');

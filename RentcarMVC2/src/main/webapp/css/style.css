@@ -1,0 +1,44 @@
+@charset "EUC-KR";
+
+* {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+header {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
+
+table {
+	margin: auto;
+}
+
+th{
+	width : 100px;
+}
+
+td{
+	text-align: left;
+}
+
+#btns{
+	text-align: center;
+	padding : 10px;
+}
+td input{
+	text-align: left;
+}
+
+.menu {
+	width: 200px;
+	height: 50px;
+	background-color: pink;
+	color: white;
+	margin: 20px;
+	text-align: center;
+	line-height: 50px;
+}

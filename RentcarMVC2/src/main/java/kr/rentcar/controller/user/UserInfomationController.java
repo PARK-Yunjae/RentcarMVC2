@@ -5,13 +5,22 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.rentcar.dao.UserDAO;
 import kr.rentcar.frontController.Controller;
+import kr.rentcar.vo.User;
 
-// 메인 페이지
-public class MainController implements Controller {
+// 회원 정보 수정하기
+public class UserInfomationController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String id = (String)req.getSession().getAttribute("loginId");
+		
+		User u = UserDAO.getInstance().myInfomation(id);
+		
+		req.setAttribute("u", u);
+		req.setAttribute("center", "user/userInfo.jsp");
+
 		return "main";
 	}
 
