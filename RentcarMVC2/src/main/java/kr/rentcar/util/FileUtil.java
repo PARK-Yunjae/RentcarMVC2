@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,11 +20,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
 public class FileUtil {
+	// 폴더 생성
+	public static void newFolder(HttpServletRequest req) {
+		String saveDirectory = req.getServletContext().getRealPath("/image");
+		Path saveDirPath = Paths.get(saveDirectory);
+		if(!Files.isDirectory(saveDirPath)) {
+			try {
+				Files.createDirectories(saveDirPath);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	//파일 업로드
 	public static String uploadFile(HttpServletRequest req, String sDirectory) 
 			throws ServletException, IOException {
 		//Part 객체를 통해 서버로 전송된 파일명 읽어오기 
-		Part part = req.getPart("uploadFile");					
+		Part part = req.getPart("img");					
 		 
 		//Part 객체의 헤더값 중 content-disposition 읽어오기 
         String partHeader = part.getHeader("content-disposition");

@@ -17,13 +17,6 @@ public class JoinUserController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String saveDirectory = req.getServletContext().getRealPath("/image");
-
-		Path saveDirPath = Paths.get(saveDirectory);
-		if (!Files.isDirectory(saveDirPath)) {
-			Files.createDirectories(saveDirPath);
-		}
-		System.out.println(saveDirectory);
 		if (req.getParameter("id") == null) {
 			req.setAttribute("center", "user/join.jsp");
 			return "main";

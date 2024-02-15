@@ -15,7 +15,6 @@ public class DeleteReservationController implements Controller {
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String ctx = req.getContextPath();
-		int cnt = -1;
 		
 		if (req.getParameter("reserveSeq") == null) {
 			return "main";
@@ -25,10 +24,10 @@ public class DeleteReservationController implements Controller {
 		int qty = Integer.parseInt(req.getParameter("qty"));
 
 		// 예약 페이지 삭제
-		cnt = ReservationDAO.getInstance().deleteReservation(reserveSeq);
+		ReservationDAO.getInstance().deleteReservation(reserveSeq);
 		// 랜트카 수량 증가
-		cnt = RentCarDAO.getInstance().addRentcarQty(qty, no);
-		System.out.println("삭제 했니");
+		RentCarDAO.getInstance().addRentcarQty(qty, no);
+
 		return "redirect:" + ctx + "/userResecationList.do";
 	}
 

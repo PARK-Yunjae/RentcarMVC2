@@ -52,6 +52,5 @@ img{
 	</c:if>
 </body>
 <script>
-console.log(아);
 </script>
 </html>

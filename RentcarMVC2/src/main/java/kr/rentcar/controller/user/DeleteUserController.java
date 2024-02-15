@@ -5,6 +5,7 @@ import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import kr.rentcar.dao.UserDAO;
 import kr.rentcar.frontController.Controller;
 
@@ -21,10 +22,13 @@ public class DeleteUserController implements Controller {
 			String pw = UserDAO.getInstance().getUserPW(id);
 			req.setAttribute("id", id);
 			req.setAttribute("pw", pw);
+			req.setAttribute("center", "user/userDelete.jsp");
 			return "main";
 		}
+
 		UserDAO.getInstance().deleteUser(id);
-		
+		HttpSession session = req.getSession();
+		session.invalidate();
 		return "main";
 	}
 }

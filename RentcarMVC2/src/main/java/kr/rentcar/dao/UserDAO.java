@@ -130,9 +130,9 @@ public class UserDAO {
 	}
 	
 	// 회원 업데이트
-	public void updateUser(User u) {
+	public int updateUser(User u) {
 		String SQL = "update user set age = ?, email = ?, tel = ?, hobby = ?, job = ?, info = ? where id = ? ";
-	
+		int cnt = -1;
 		try {
 			conn = DBUtil.getConnect();
 			ps = conn.prepareStatement(SQL);
@@ -143,11 +143,13 @@ public class UserDAO {
 			ps.setString(5, u.getJob());
 			ps.setString(6, u.getInfo());
 			ps.setString(7, u.getId());
+			cnt = ps.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			DBUtil.dbClose(conn, ps, rs);
 		}
+		return cnt;
 	}
 	
 	// 회원탈퇴용 pw 가져가기

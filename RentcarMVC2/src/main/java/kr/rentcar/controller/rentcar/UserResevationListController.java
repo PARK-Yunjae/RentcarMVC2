@@ -25,7 +25,6 @@ public class UserResevationListController implements Controller {
 		if (session.getAttribute("loginId") == null) {
 			return "main";
 		}
-		System.out.println(id);
 		ArrayList<Reservation> reservelist = ReservationDAO.getInstance().myReservationlist(id);
 		ArrayList<Rentcar> rentcarlist = RentCarDAO.getInstance().myReservationlist(reservelist);
 		// 두개를 합친 리스트를 따로 만듬

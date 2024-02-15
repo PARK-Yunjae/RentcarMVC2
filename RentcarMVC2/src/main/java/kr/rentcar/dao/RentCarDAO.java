@@ -155,4 +155,30 @@ public class RentCarDAO {
 		
 		return list;
 	}
+	
+	// 랜트카 추가 - 관리자
+	public int insertRentcar(Rentcar r) {
+		int cnt = -1;
+		String SQL = "insert into rentcar(name, category, price, usepeople, total_qty, company, img, info) value(?,?,?,?,?,?,?,?);";
+		
+		try {
+			conn = DBUtil.getConnect();
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, r.getName());
+			ps.setInt(2, r.getCategory());
+			ps.setInt(3, r.getPrice());
+			ps.setInt(4, r.getUsepeople());
+			ps.setInt(5, r.getTotalQty());
+			ps.setString(6, r.getCompany());
+			ps.setString(7, r.getImg());
+			ps.setString(8, r.getInfo());
+			cnt = ps.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.dbClose(conn, ps, rs);
+		}
+		
+		return cnt;
+	}
 }

@@ -14,6 +14,7 @@ public class HandlerMapping {
 		mappings.put("/carList.do", new CarListController());
 		mappings.put("/deleteResercation.do", new DeleteReservationController());
 		mappings.put("/deleteUser.do", new DeleteUserController());
+		mappings.put("/deleteUserCheck.do", new DeleteUserCheckController());
 		mappings.put("/insertCar.do", new InsertCarController());
 		mappings.put("/loginUser.do", new LoginUserController());
 		mappings.put("/logoutUser.do", new LogoutUserController());

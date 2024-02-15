@@ -14,12 +14,13 @@
 <body>
 	<header>
 		<div class="menu" onclick="location.href='${ctx}/main.do'">메인으로</div>
-		<div class="menu" onclick="location.href='${ctx}/carList.do'">예약하기</div>
 		<c:if test="${empty log}">
+			<div class="menu" onclick="location.href='${ctx}/carList.do'">예약하기</div>
 			<div class="menu" onclick="location.href='${ctx}/joinUser.do'">회원가입</div>
 			<div class="menu" onclick="location.href='${ctx}/loginUser.do'">로그인</div>
 		</c:if>
 		<c:if test="${!empty log && loginId ne 'admin'}">
+			<div class="menu" onclick="location.href='${ctx}/carList.do'">예약하기</div>
 			<div class="menu"
 				onclick="location.href='${ctx}/userInfomation.do?log=${log}'">내정보</div>
 			<div class="menu" onclick="location.href='${ctx}/userResecationList.do'">예약확인</div>
@@ -29,7 +30,7 @@
 		<c:if test="${!empty log && loginId eq 'admin'}">
 			<div class="menu"
 				onclick="location.href='${ctx}/userInfomation.do?log=${log}'">회원목록</div>
-			<div class="menu" onclick="location.href='${ctx}/userResecationList.do'">렌트카 추가</div>
+			<div class="menu" onclick="location.href='${ctx}/insertCar.do'">렌트카 추가</div>
 			<div class="menu" onclick="location.href='${ctx}/logoutUser.do'">로그아웃</div>
 		</c:if>
 	</header>
