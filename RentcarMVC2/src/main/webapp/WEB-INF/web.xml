@@ -9,14 +9,4 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>RentcarFrontController</display-name>
-    <servlet-name>RentcarFrontController</servlet-name>
-    <servlet-class>kr.rentcar.frontController.RentcarFrontController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RentcarFrontController</servlet-name>
-    <url-pattern>/RentcarFrontController</url-pattern>
-  </servlet-mapping>
 </web-app>

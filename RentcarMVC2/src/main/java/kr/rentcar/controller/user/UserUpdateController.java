@@ -10,12 +10,12 @@ import kr.rentcar.frontController.Controller;
 import kr.rentcar.vo.User;
 
 // 회원 정보 수정 페이지
-public class UpdateUserController implements Controller {
+public class UserUpdateController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		if (req.getSession().getAttribute("loginId") == null) {
-			return "main";
+			return "parts/main";
 		}
 		String id = (String)req.getSession().getAttribute("loginId");
 		String age = req.getParameter("age");
@@ -27,6 +27,6 @@ public class UpdateUserController implements Controller {
 		
 		User u = new User(id, age, email, tel, hobby, job, info);
 		UserDAO.getInstance().updateUser(u);
-		return "main";
+		return "parts/main";
 	}
 }

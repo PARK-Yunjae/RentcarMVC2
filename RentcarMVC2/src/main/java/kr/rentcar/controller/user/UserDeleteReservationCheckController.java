@@ -11,7 +11,7 @@ import kr.rentcar.frontController.Controller;
 import kr.rentcar.vo.Reservation;
 
 // 회원탈퇴시 예약 유무 체크
-public class DeleteUserCheckController implements Controller{
+public class UserDeleteReservationCheckController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

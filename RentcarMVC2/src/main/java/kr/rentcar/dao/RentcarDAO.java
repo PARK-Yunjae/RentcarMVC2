@@ -9,10 +9,10 @@ import kr.rentcar.util.DBUtil;
 import kr.rentcar.vo.Rentcar;
 import kr.rentcar.vo.Reservation;
 
-public class RentCarDAO {
-	private static RentCarDAO instance= new RentCarDAO();
+public class RentcarDAO {
+	private static RentcarDAO instance= new RentcarDAO();
 
-	public static RentCarDAO getInstance() {
+	public static RentcarDAO getInstance() {
 		return instance;
 	}
 	
@@ -87,7 +87,7 @@ public class RentCarDAO {
 	}
 	
 	// 랜트카 수량 감소
-	public int updateRentcarQty(int qty, int no) {
+	public int updateMinusRentcarQty(int qty, int no) {
 		String SQL = "update rentcar set total_qty = total_qty - ? where no = ?;";
 		int cnt = -1;
 		try {
@@ -105,7 +105,7 @@ public class RentCarDAO {
 	}
 	
 	// 랜트카 수량 증가
-	public int addRentcarQty(int qty, int no) {
+	public int updatePlusRentcarQty(int qty, int no) {
 		String SQL = "update rentcar set total_qty = total_qty + ? where no = ?;";
 		int cnt = -1;
 		try {
@@ -123,7 +123,7 @@ public class RentCarDAO {
 	}
 	
 	// 내가 예약한 차 정보 받아가기
-	public ArrayList<Rentcar> myReservationlist(ArrayList<Reservation> reservelist){
+	public ArrayList<Rentcar> myReservationRentcarlist(ArrayList<Reservation> reservelist){
 		ArrayList<Rentcar> list = new ArrayList<Rentcar>();
 		String SQL = "select * from Rentcar where no = ?";
 

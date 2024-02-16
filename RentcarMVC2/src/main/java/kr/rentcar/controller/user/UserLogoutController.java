@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import kr.rentcar.frontController.Controller;
 
 // 로그아웃 
-public class LogoutUserController implements Controller {
+public class UserLogoutController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

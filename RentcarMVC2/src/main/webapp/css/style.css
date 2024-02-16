@@ -6,39 +6,48 @@
 	text-align: center;
 }
 
-header {
-	width: 80%;
-	margin: auto;
+body {
+	margin: 0;
+	width : 100vw;
+	height: 100vh;
+	position: relative;
 	display: flex;
-	justify-content: center;
+    align-items: center;
+    justify-content: center;
+	flex-direction: column;
+} 
+
+header{
+	position: fixed;
+	top:0;
+	width: 80%;
+	z-index: 1 !important;
+	display: flex;
 }
 
-table {
-	margin: auto;
+header {
+	flex: 1;
 }
 
-th{
-	width : 100px;
-}
-
-td{
-	text-align: left;
-}
-
-#btns{
-	text-align: center;
-	padding : 10px;
-}
-td input{
-	text-align: left;
-}
-
-.menu {
-	width: 200px;
-	height: 50px;
-	background-color: pink;
+header .menu {
+	height: 100%;
+	flex: 1;
+	background: rgba(0, 0, 0, 0.5);
 	color: white;
-	margin: 20px;
-	text-align: center;
-	line-height: 50px;
+	font-size : 30px;
+  	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* footer */
+footer {
+	width: 80%;
+	flex: 1;
+	flex-direction: column;
+}
+
+footer table {
+	font-size: 20px;
+	letter-spacing: 1px;
 }

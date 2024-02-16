@@ -1,9 +1,6 @@
 package kr.rentcar.controller.user;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,13 +10,12 @@ import kr.rentcar.frontController.Controller;
 import kr.rentcar.vo.User;
 
 // 회원가입
-public class JoinUserController implements Controller {
+public class UserJoinController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		if (req.getParameter("id") == null) {
-			req.setAttribute("center", "user/join.jsp");
-			return "main";
+			return "user/join";
 		}
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
@@ -35,7 +31,7 @@ public class JoinUserController implements Controller {
 		
 		int cnt = UserDAO.getInstance().memberInsert(vo);
 		if (cnt > 0) {
-			return "main";
+			return "parts/main";
 		} else {
 			throw new ServletException("not insert");
 		}

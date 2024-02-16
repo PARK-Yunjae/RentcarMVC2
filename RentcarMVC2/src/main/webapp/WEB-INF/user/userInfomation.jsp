@@ -1,16 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>유저 정보</title>
-</head>
-<body>
-	<h1 class="py-3">회원 가입</h1>
-	<form action="${ctx}/updateUser.do" method="post">
+<%@ include file="../parts/header.jsp"%>
+<main>
+	<h1>회원 가입</h1>
+	<form action="${ctx}/userUpdate.do" method="post">
 		<table>
 			<tr>
 				<th>아이디</th>
@@ -68,7 +61,7 @@
 			</tr>
 		</table>
 	</form>
-</body>
+</main>
 <script type="text/javascript">
 let check = 0;
 function validCheck(form){
@@ -132,4 +125,4 @@ function validCheck(form){
 }
 
 </script>
-</html>
+<%@ include file="../parts/footer.jsp"%>

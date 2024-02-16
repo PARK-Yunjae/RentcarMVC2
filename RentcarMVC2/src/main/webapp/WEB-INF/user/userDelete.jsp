@@ -1,16 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원 탈퇴</title>
-</head>
-<body>
+<%@ include file="../parts/header.jsp"%>
+<main>
 	<h1>회원 탈퇴</h1>
-	<form action="${ctx}/deleteUser.do" method="post" id="deleteUser">
+	<form action="${ctx}/userDelete.do" method="post" id="deleteUser">
 		<table>
 			<tr>
 				<td>패스워드</td>
@@ -19,13 +12,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center">
+				<td colspan="2">
 					<input type="button" id="deleteBtn" value="회원탈퇴"/>
 				</td>
 			</tr>
 		</table>
 	</form>
-</body>
+</main>
 <script>
 let deleteBtn = document.getElementById("deleteBtn");
 let contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
@@ -44,7 +37,7 @@ deleteBtn.addEventListener("click" , ()=> {
 	    document.getElementById("pw").style.border = "";
 	    return;
 	}
-	fetch("deleteUserCheck.do", {
+	fetch("userDeleteReservationCheck.do", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -55,7 +48,7 @@ deleteBtn.addEventListener("click" , ()=> {
 	.then(data => {
 		if(data == 0){
 			alert("회원 탈퇴 완료");
-			location.href = contextPath + "/deleteUser.do?pw="+${pw};
+			location.href = contextPath + "/userDelete.do?pw="+${pw};
 		}else{
 			alert("예약 목록이 없어야 탈퇴가 가능합니다");
 		}
@@ -63,4 +56,4 @@ deleteBtn.addEventListener("click" , ()=> {
 	.catch(() => alert("error"));
 });
 </script>
-</html>
+<%@ include file="../parts/footer.jsp"%>

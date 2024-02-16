@@ -10,25 +10,24 @@ import kr.rentcar.dao.UserDAO;
 import kr.rentcar.frontController.Controller;
 
 // 회원 탈퇴
-public class DeleteUserController implements Controller {
+public class UserDeleteController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String id =(String)req.getSession().getAttribute("loginId");
 		if(id == null) {
-			return "main";
+			return "parts/main";
 		}
 		else if(req.getParameter("pw") == null) {
 			String pw = UserDAO.getInstance().getUserPW(id);
 			req.setAttribute("id", id);
 			req.setAttribute("pw", pw);
-			req.setAttribute("center", "user/userDelete.jsp");
-			return "main";
+			return "user/userDelete";
 		}
 
 		UserDAO.getInstance().deleteUser(id);
 		HttpSession session = req.getSession();
 		session.invalidate();
-		return "main";
+		return "parts/main";
 	}
 }

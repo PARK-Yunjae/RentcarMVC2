@@ -19,9 +19,8 @@ public class UserInfomationController implements Controller {
 		User u = UserDAO.getInstance().myInfomation(id);
 		
 		req.setAttribute("u", u);
-		req.setAttribute("center", "user/userInfo.jsp");
 
-		return "main";
+		return "user/userInfomation";
 	}
 
 }
