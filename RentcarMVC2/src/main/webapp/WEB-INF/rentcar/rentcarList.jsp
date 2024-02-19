@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
+<link rel="stylesheet" href="${ctx }/css/rentcarList.css">
 <main>
-	<div>
+	<div class="listBar">
 		<input type="button" value="최신" id=recent>
 		<input type="button" value="대형" id=large>
 		<input type="button" value="중형" id=medium>
@@ -13,8 +14,8 @@
 			<div class="rentcar">
 				<div class="image">
 					<a href="${ctx}/rentcarInfomation.do?no=${r.no}"> 
-						<img src="image/${r.img}" alt="이미지" />
-						<Strong>${r.name}</Strong>
+						<img src="img/${r.img}" alt="이미지" />
+						<Strong class="cover">${r.name}</Strong>
 					</a>
 				</div>
 			</div>

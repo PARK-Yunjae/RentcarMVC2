@@ -33,7 +33,9 @@ public class RentcarReservationController implements Controller {
 		int cnt = RentcarDAO.getInstance().updateMinusRentcarQty(qty, no); // 랜트카 수량 갱신
 		
 		if(cnt > 0) {
-			return "parts/main";
+			res.getWriter().write("<script>alert('랜트카 예약 성공');</script>");
+			String ctx = req.getContextPath();
+			return "redirect:"+ ctx + "/main.do";
 		}else {
 			throw new ServletException("not insert");
 		}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* 전체를 감싸고 있는 메인 */
+main {
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex: 1;
+}
+
+#title{
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+form{
+	margin: 0 auto;
+}
+
+th{
+	text-align: left;
+	width: 80px;
+	height: 40px;
+}
+
+#button{
+	text-align: center;
+}
+
+/* 로그인 버튼 */
+#loginCheck{
+	padding: 10px 40px 10px;
+	color: white;
+	font-size: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+}
+
+/* 로그인 버튼 */
+#loginCheck:hover{
+	color: gray;
+}
+
+/* input */
+#id, #pw{
+	width: 180px;
+	height: 30px;	
+}
+
+
+

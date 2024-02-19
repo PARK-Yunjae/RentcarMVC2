@@ -28,6 +28,7 @@ public class HandlerMapping {
 		mappings.put("/userReservationView.do", new UserReservationViewController());
 		mappings.put("/userUpdate.do", new UserUpdateController());
 		mappings.put("/validateId.do", new ValidateIdController());
+		mappings.put("/validateLogin.do", new ValidateLoginController());
 	}
 	
 	public Controller getController(String key) {

@@ -23,7 +23,7 @@
 			<c:forEach var="list" items="${list }">
 				<tr>
 					<td>${list.reserveSeq}</td>
-					<td><img src="image/${list.img }"></td>
+					<td id="img"><img src="img/${list.img }" width=300 height=300></td>
 					<td>
 						<a href="${ctx }/userReservationView.do?reserveSeq=${list.reserveSeq}">${list.name }</a>
 					</td>

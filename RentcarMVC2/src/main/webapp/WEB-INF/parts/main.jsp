@@ -5,14 +5,18 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript" src="${ctx }/javascript/main.js" defer></script>
+<script type="text/javascript" src="${ctx }/js/main.js" defer></script>
 <link rel="stylesheet" href="${ctx }/css/main.css">
 <main>
 	<div class="myslider">
 		<c:forEach var="list" items="${list}"> 
-			<div>
-				<img src="image/${list.img }" alt="이미지">
-				<strong>${list.name }</strong>
+			<div class="card">
+				<div class="image">
+					<img src="img/${list.img }" alt="이미지">
+				</div>
+				<div class="cover">
+						${list.name }<br>${list.price }
+				</div>
 			</div>
 		</c:forEach>
 	</div>

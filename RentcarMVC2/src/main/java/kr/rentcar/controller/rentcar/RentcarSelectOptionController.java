@@ -1,6 +1,9 @@
 package kr.rentcar.controller.rentcar;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +24,21 @@ public class RentcarSelectOptionController implements Controller {
 			no = Integer.parseInt(req.getParameter("no"));
 		}
 		Rentcar rc = RentcarDAO.getInstance().getOneRentcar(no);
-		System.out.println(rc);
+		
+		// 날짜 데이터 형식 지정
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+		// 캘린더 소환
+		Calendar cal = Calendar.getInstance();
+		Date minDate = cal.getTime(); // 오늘날짜 주고
+		cal.add(Calendar.DATE, 10);  // 10일 더해서
+		Date maxDate = cal.getTime(); // 마지막 날짜
+
+		String min = dtFormat.format(minDate); // 사용자 형식으로 포멧
+		String max = dtFormat.format(maxDate);
+
+		req.setAttribute("value", min);
+		req.setAttribute("min", min);
+		req.setAttribute("max", max);
 		req.setAttribute("rc", rc);
 		
 		return "rentcar/rentcarSelectOption";

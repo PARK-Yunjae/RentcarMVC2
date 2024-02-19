@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
+<link rel="stylesheet" href="${ctx }/css/rentcarInfomation.css">
+
 <main>
 	<table>
 		<tr>
-			<td rowspan="8">
-				<img src="image/${rc.img}" alt="이미지" width=300 height=300 />
+			<td class="imgTd" rowspan="8">
+				<img src="img/${rc.img}" alt="이미지"/>
 			</td>
 		</tr>
 		<tr>
@@ -14,7 +16,11 @@
 		</tr>
 		<tr>
 			<th>차량 종류</th>
-			<td>${rc.category}</td>
+			<td>
+				<c:if test="${rc.category eq 1}">대형</c:if>
+				<c:if test="${rc.category eq 2}">중형</c:if>
+				<c:if test="${rc.category eq 3}">소형</c:if>
+			</td>
 		</tr>
 		<tr>
 			<th>랜트가격</th>
@@ -38,7 +44,7 @@
 		</tr>
 		<tr>
 			<td colspan=3>
-				<button onclick="logincheck('${log}','${rc.no}', '${rc.totalQty}')">예약하기</button>
+				<button id="loginBtn" onclick="logincheck('${log}','${rc.no}', '${rc.totalQty}')">예약하기</button>
 			</td>
 		</tr>
 	</table>

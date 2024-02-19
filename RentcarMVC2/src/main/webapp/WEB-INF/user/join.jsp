@@ -1,47 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
+<link rel="stylesheet" href="${ctx }/css/join.css">
 <main>
-	<h1>회원 가입</h1>
 	<form action="${ctx}/userJoin.do" method="post">
 		<table>
 			<tr>
-				<th>아이디</th>
-				<td><input type="text" name="id" id="id" autofocus /> <input
-					type="button" value="중복체크" id="checkId"></td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="pw" id="pw" /></td>
-			</tr>
-			<tr>
-				<th>나이</th>
-				<td><input type="number" name="age" id="age" /></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><input type="email" name="email" id="email" /></td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td><input type="tel" name="tel" id="tel" /></td>
-			</tr>
-			<tr>
-				<th>취미</th>
-				<td><input type="text" name="hobby" id="hobby" /></td>
-			</tr>
-			<tr>
-				<th>직업</th>
-				<td><input type="text" name="job" id="job" /></td>
-			</tr>
-			<tr>
-				<th>정보</th>
-				<td><textarea rows="10" cols="20" name="info" id="info"></textarea>
+				<td colspan="3" id="title">
+				회원 가입
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" id="btns"><input type="button" value="가입"
-					onclick="validCheck(form)" /> <input type="reset" value="취소" /></td>
+				<th>아이디</th>
+				<td>
+					<input type="text" name="id" id="id" class="inputText" autofocus />
+				</td> 
+				<td rowspan="7" id="checkIdBtn" valign="top">
+					<input type="button" value="중복체크" id="checkId">
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" name="pw" id="pw" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>나이</th>
+				<td><input type="number" name="age" id="age" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td><input type="email" name="email" id="email" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td><input type="tel" name="tel" id="tel" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>취미</th>
+				<td><input type="text" name="hobby" id="hobby" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>직업</th>
+				<td><input type="text" name="job" id="job" class="inputText" /></td>
+			</tr>
+			<tr>
+				<th>정보</th>
+				<td colspan="2"><textarea name="info" id="info"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" id="btns">
+					<input type="button" value="가입" onclick="validCheck(form)" /> 
+					<input type="reset" value="취소" />
+				</td>
 			</tr>
 		</table>
 	</form>

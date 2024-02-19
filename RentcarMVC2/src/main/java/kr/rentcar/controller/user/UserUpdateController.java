@@ -26,7 +26,13 @@ public class UserUpdateController implements Controller {
 		String info = req.getParameter("info");
 		
 		User u = new User(id, age, email, tel, hobby, job, info);
-		UserDAO.getInstance().updateUser(u);
-		return "parts/main";
+		int cnt = UserDAO.getInstance().updateUser(u);
+		if (cnt > 0) {
+			res.getWriter().write("<script>alert('회원수정 성공');</script>");
+			String ctx = req.getContextPath();
+			return "redirect:"+ ctx + "/main.do";
+		} else {
+			throw new ServletException("not insert");
+		}
 	}
 }

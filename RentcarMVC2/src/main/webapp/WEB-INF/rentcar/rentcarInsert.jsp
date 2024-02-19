@@ -1,11 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
+<style>
+/* 전체를 감싸고 있는 메인 */
+main {
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex: 1;
+}
+
+form{
+	margin: 0 auto;
+}	
+
+#btn{
+	text-align: center;
+}
+
+input[type='button']{
+	margin: 0 auto;
+	padding: 10px 40px 10px;
+	color: white;
+	font-size: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+}
+</style>
 <main>
 	<form action="${ctx}/rentcarInsert.do" method="post" enctype="multipart/form-data" onsubmit="registerCarCheck(this)">
-		<table>
+		<table border=1>
 			<tr>
-				<td rowspan=10>
+				<td rowspan=9>
 					<img id="preview" width=300 height=300>
 				</td>
 			</tr>
@@ -62,8 +89,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td id="btn" colspan="2">
-					<input type="submit" value="랜트카 등록" />
+				<td id="btn" colspan="3">
+					<input type="button" value="랜트카 등록" onclick="registerCarCheck(form)"/>
 				</td>
 			</tr>
 		</table>
@@ -124,6 +151,7 @@
 			form.info.focus();
 			return false;
 		}
+		form.submit();
 	}
 </script>
 <%@ include file="../parts/footer.jsp"%>

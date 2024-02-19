@@ -16,12 +16,13 @@ public class RentcarInsertController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String saveDirectory = req.getServletContext().getRealPath("/image"); //add?파일?
-		if(req.getParameter("name") == null) {
+		String saveDirectory = req.getServletContext().getRealPath("/img"); //add?파일?
+		if(req.getParameter("name") == null || req.getParameter("name").equals("") ) {
 			ArrayList<Rentcar> list = RentcarDAO.getInstance().getRentcarList(0);
 			req.setAttribute("no", list.size());;
 			return "rentcar/rentcarInsert";
 		}
+		System.out.println(saveDirectory);
 		FileUtil.newFolder(req);
 		
 		String name = req.getParameter("name");
@@ -36,7 +37,9 @@ public class RentcarInsertController implements Controller {
 		Rentcar r = new Rentcar(0, name, category, price, usepeople, totalQty, company, img, info);
 		int cnt = RentcarDAO.getInstance().insertRentcar(r);
 		if(cnt > 0) {
-			return "parts/main";
+			res.getWriter().write("<script>alert('렌트카 등록 성공');</script>");
+			String ctx = req.getContextPath();
+			return "redirect:"+ ctx + "/main.do";
 		}else {
 			throw new ServletException("not insert");
 		}	

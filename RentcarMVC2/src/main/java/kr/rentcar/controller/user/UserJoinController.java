@@ -31,7 +31,9 @@ public class UserJoinController implements Controller {
 		
 		int cnt = UserDAO.getInstance().memberInsert(vo);
 		if (cnt > 0) {
-			return "parts/main";
+			res.getWriter().write("<script>alert('회원가입 성공');</script>");
+			String ctx = req.getContextPath();
+			return "redirect:"+ ctx + "/main.do";
 		} else {
 			throw new ServletException("not insert");
 		}

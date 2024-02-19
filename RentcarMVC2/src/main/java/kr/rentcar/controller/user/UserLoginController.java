@@ -26,7 +26,8 @@ public class UserLoginController implements Controller {
 			session.setAttribute("log", UserDAO.getInstance().getMemberNo(id));
 			session.setAttribute("loginId", id);
 			res.getWriter().write("<script>alert('로그인 성공');</script>");
-			return "parts/main";
+			String ctx = req.getContextPath();
+			return "redirect:"+ ctx + "/main.do";
 		}else {
 			res.getWriter().write("<script>alert('로그인 실패');</script>");
 			return "user/login";

@@ -5,7 +5,7 @@
 	<table>
 		<tr>
 			<td rowspan=5>
-				<img src="image/${jcv.img}" alt="${rc.name}" width=300 height=300 />
+				<img src="img/${jcv.img}" alt="${rc.name}" width=300 height=300 />
 			</td>
 		</tr>
 		<tr>

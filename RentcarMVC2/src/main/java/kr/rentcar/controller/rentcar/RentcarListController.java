@@ -15,6 +15,7 @@ public class RentcarListController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		int category = 0;
 		if(req.getParameter("category") != null) {
 			category = Integer.parseInt(req.getParameter("category"));

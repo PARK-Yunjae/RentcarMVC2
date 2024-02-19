@@ -22,7 +22,7 @@ import jakarta.servlet.http.Part;
 public class FileUtil {
 	// 폴더 생성
 	public static void newFolder(HttpServletRequest req) {
-		String saveDirectory = req.getServletContext().getRealPath("/image");
+		String saveDirectory = req.getServletContext().getRealPath("/img");
 		Path saveDirPath = Paths.get(saveDirectory);
 		if(!Files.isDirectory(saveDirPath)) {
 			try {

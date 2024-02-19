@@ -1,62 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
+<link rel="stylesheet" href="${ctx }/css/userInfomation.css">
 <main>
-	<h1>회원 가입</h1>
+	
 	<form action="${ctx}/userUpdate.do" method="post">
 		<table>
+			<caption>회원 수정</caption>
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" name="id" id="id" value="${u.id}" readonly />
+					<input type="text" name="id" id="id" class="inputText" value="${u.id}" readonly />
 				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
 				<td>
-					<input type="password" name="pw" id="pw" />
+					<input type="password" name="pw" id="pw" class="inputText"/>
 				</td>
 			</tr>
 			<tr>
 				<th>나이</th>
 				<td>
-					<input type="number" name="age" id="age" value="${u.age}" />
+					<input type="number" name="age" id="age" class="inputText" value="${u.age}" />
 				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input type="email" name="email" id="email" value="${u.email}"/>
+					<input type="email" name="email" id="email" class="inputText" value="${u.email}"/>
 				</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
 				<td>
-					<input type="tel" name="tel" id="tel" value="${u.tel}"/>
+					<input type="tel" name="tel" id="tel" class="inputText" value="${u.tel}"/>
 				</td>
 			</tr>
 			<tr>
 				<th>취미</th>
 				<td>
-					<input type="text" name="hobby" id="hobby" value="${u.hobby}"/>
+					<input type="text" name="hobby" id="hobby" class="inputText" value="${u.hobby}"/>
 				</td>
 			</tr>
 			<tr>
 				<th>직업</th>
 				<td>
-					<input type="text" name="job" id="job" value="${u.job}"/>
+					<input type="text" name="job" id="job" class="inputText" value="${u.job}"/>
 				</td>
 			</tr>
 			<tr>
 				<th>정보</th>
 				<td>
-					<textarea rows="10" cols="20" name="info" id="info">${u.info}</textarea>
+					<textarea name="info" id="info" class="inputText">${u.info}</textarea>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" id="btns">
-					<input type="button" value="수정" onclick="validCheck(form)" /> 
-					<input type="reset" value="취소" />
+					<input type="button" id="infoBtn" value="수정" onclick="validCheck(form)" /> 
+					<input type="reset" id="infoBtn" value="취소" />
 				</td>
 			</tr>
 		</table>
