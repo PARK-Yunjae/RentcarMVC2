@@ -11,7 +11,7 @@ public class DBUtil {
 	public static Connection getConnect() {
 		String URL = "jdbc:mysql://localhost:3306/rentcarDB01?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
 		String user = "root";
-		String password = "Abcd123@";
+		String password = "1234";
 		Connection conn= null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
